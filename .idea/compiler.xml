@@ -10,5 +10,6 @@
         <module name="Group27CW" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="10" />
   </component>
 </project>
