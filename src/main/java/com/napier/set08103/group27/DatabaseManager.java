@@ -8,7 +8,7 @@ public class DatabaseManager {
     //Probably should make this a singleton
 
     //Connect to mongodb
-    MongoClient mongoClient = new MongoClient();
+    MongoClient mongoClient = new MongoClient("mongodb-server");
 
     //Get database
     MongoDatabase database = mongoClient.getDatabase("world.sql");
