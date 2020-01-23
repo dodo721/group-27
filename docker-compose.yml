@@ -1,0 +1,10 @@
+version: '3'
+services:
+  #Application Dockerfile is in same directory
+  app:
+    build: .
+
+  db:
+    build: db/database/world.sql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
