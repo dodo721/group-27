@@ -1,5 +1,6 @@
 package com.napier.set08103.group27.data;
 
+// Singleton class for keeping the World instance
 public class DataStore {
 
     private World world;
