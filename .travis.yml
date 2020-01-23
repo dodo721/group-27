@@ -6,8 +6,4 @@ services:
   - docker
 
 after_success:
-  - docker network create --driver bridge group27
-  - docker pull mongo
-  - docker run -d --name mongodb-server --network group27 mongo
-  - docker build -t grp_27 .
-  - docker run --network group27 grp_27
+  - docker-compose up --abort-on-container-exit
