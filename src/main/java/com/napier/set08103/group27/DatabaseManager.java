@@ -30,7 +30,7 @@ public class DatabaseManager {
             try
             {
                 //Giving time for database to get set up
-                Thread.sleep(5000);
+                Thread.sleep(10000);
 
                 //Getting connection to the database
                 connection = DriverManager.getConnection("jdbc:mysql://db:3306/world", "root", "password");
