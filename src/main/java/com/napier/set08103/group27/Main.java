@@ -8,7 +8,7 @@ public class Main {
 
         //Connecting to the database
         //Encountering problems with database connection
-        //db.connect();
+        db.connect();
 
         //TODO: put SQL statements/methods to get from the database here
 

@@ -26,7 +26,7 @@ public class DatabaseManager {
         int retries = 5;    //Number of times connection will be attempted before providing an error
         for(int i = 1; i <= retries; i++)
         {
-            System.out.println("Connecting to database");
+            System.out.println("Connecting to database...");
             try
             {
                 //Giving time for database to get set up
@@ -34,8 +34,8 @@ public class DatabaseManager {
 
                 //Getting connection to the database
                 //Getting some errors with connection - most likely due to the URL
-                connection = DriverManager.getConnection("jdbc:mysql://db:3306/world", "root", "password");
-                System.out.println("Success");
+                connection = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "password");
+                System.out.println("Successfully connected.");
                 break;
             }
             catch (InterruptedException e)
