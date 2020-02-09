@@ -7,9 +7,9 @@ public class Main {
         DatabaseManager db = new DatabaseManager();
 
         //Connecting to the database
-        //Encountering problems with database connection
         db.connect();
 
+        System.out.println("Test");
         //TODO: put SQL statements/methods to get from the database here
 
         //Closing the connection to database

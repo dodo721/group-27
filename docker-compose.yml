@@ -3,8 +3,10 @@ services:
   #Application Dockerfile is in same directory
   app:
     build: .
+    image: group-27_app:latest
 
   db:
     build: db/.
+    image: group-27_db:latest
     command: --default-authentication-plugin=mysql_native_password
     restart: always

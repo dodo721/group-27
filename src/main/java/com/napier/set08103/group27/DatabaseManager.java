@@ -1,8 +1,6 @@
 package com.napier.set08103.group27;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 //Class to manage the connection between the program and the database
 public class DatabaseManager {
@@ -33,7 +31,6 @@ public class DatabaseManager {
                 Thread.sleep(10000);
 
                 //Getting connection to the database
-                //Getting some errors with connection - most likely due to the URL
                 connection = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "password");
                 System.out.println("Successfully connected.");
                 break;
@@ -63,6 +60,28 @@ public class DatabaseManager {
             {
                System.out.println("Error closing database");
             }
+        }
+    }
+
+    public ResultSet query(String str)
+    {
+        try
+        {
+            Statement statement = connection.createStatement();
+
+            //The SQL statement that is passed in
+            String strSelect = str;
+
+            //Executing query
+            ResultSet resultSet = statement.executeQuery(strSelect);
+
+            return resultSet;
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Couldn't get employee details.");
+            return null;
         }
     }
     
