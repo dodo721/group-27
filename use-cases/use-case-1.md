@@ -1,55 +1,64 @@
-# USE CASE: 4 Produce a Report on the Salary of Employees of a Given Role
+# USE CASE: 1 Produce a Report on Spoken Language Statistics
 
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
 
-As an *HR advisor* I want *to produce a report on the salary of employees of a given role* so that *I can support financial reporting of the organisation.*
+As a ***Data Analyst***, I want to generate a ***Languages Report*** containing the number of speakers and percentage of world population per language, for ***statistical analysis*** as requested by my organisation
 
 ### Scope
 
-Company.
+Company????.
 
 ### Level
 
-Primary task.
+Primary task????.
 
 ### Preconditions
 
-We know the role.  Database contains current employee salary data.
+The system is expected to function as normal.
 
+Data Analyst is expected to understand how to use the system/generate reports.
+
+The contents of the database is understood to contain *Country Code, Language, IsOfficial (Boolean), Percentage of country that speaks language.*
 ### Success End Condition
 
-A report is available for HR to provide to finance.
+System produces a Language Report containing the number of people who speak defined languages, and number of speakers as percentage of world population. **This is to be sorted by greatest number to smallest**. 
 
 ### Failed End Condition
 
-No report is produced.
+Incorrect data is provided to the Data Analyst - **Severe**.
+
+OR
+
+A report cannot be produced and error is thrown.
 
 ### Primary Actor
 
-HR Advisor.
+Data Analyst.
 
 ### Trigger
 
-A request for finance information is sent to HR.
+Data Analyst uses System to generate selected (Languages) report.
 
 ## MAIN SUCCESS SCENARIO
 
-1. Finance request salary information for a given role.
-2. HR advisor captures name of the role to get salary information for.
-3. HR advisor extracts current salary information of all employees of the given role.
-4. HR advisor provides report to finance.
+1. Data Analyst opens system interface and selects desired query, languages in this context.
+2. Data Analyst sends query.
+3. Data Analyst is provided with report of Languages information.
+4. Data Analyst provides report to relevant personnel in department as per request. 
 
 ## EXTENSIONS
 
-3. **Role does not exist**:
-    1. HR advisor informs finance no role exists.
+1. Connection Link issue to Database (e.g. Database down, Local Network Issue, etc.).
+   1. Data Analyst informs Database Administrator and or IT Department of issue.
+2. Database is corrupted causing loss of information.
+    1. Data Analyst informs Database Administrator.
 
 ## SUB-VARIATIONS
 
-None.
+????
 
 ## SCHEDULE
 
-**DUE DATE**: Release 1.0
+**DUE DATE**: 0.1.0.3 (17/02/2020)
