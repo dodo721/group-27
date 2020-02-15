@@ -8,11 +8,11 @@ As a ***Data Analyst***, I want to generate a ***Capital City Report***, includi
 
 ### Scope
 
-Company????.
+System.
 
 ### Level
 
-Primary task????.
+User Goal.
 
 ### Preconditions
 
