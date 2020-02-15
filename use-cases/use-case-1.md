@@ -1,4 +1,4 @@
-# USE CASE: 1 Produce a Report on Spoken Language Statistics
+# Use Case 1: Produce a Report on Spoken Language Statistics
 
 ## CHARACTERISTIC INFORMATION
 
@@ -20,7 +20,7 @@ The system is expected to function as normal.
 
 Data Analyst is expected to understand how to use the system/generate reports.
 
-The contents of the database is understood to contain *Country Code, Language, IsOfficial (Boolean), Percentage of country that speaks language.*
+The contents of the database is understood to contain: *Country Code, Language, IsOfficial (Boolean), and Percentage of country that speaks language.*
 ### Success End Condition
 
 System produces a Language Report containing the number of people who speak defined languages, and number of speakers as percentage of world population. **This is to be sorted by greatest number to smallest**. 
@@ -39,11 +39,11 @@ Data Analyst.
 
 ### Trigger
 
-Data Analyst uses System to generate selected (Languages) report.
+Data Analyst uses System Interface to generate selected (Languages) report.
 
 ## MAIN SUCCESS SCENARIO
 
-1. Data Analyst opens system interface and selects desired query, languages in this context.
+1. Data Analyst opens system interface and selects desired query/report, languages in this context.
 2. Data Analyst sends query.
 3. Data Analyst is provided with report of Languages information.
 4. Data Analyst provides report to relevant personnel in department as per request. 
