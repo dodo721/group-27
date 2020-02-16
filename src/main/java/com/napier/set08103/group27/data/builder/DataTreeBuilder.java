@@ -6,13 +6,14 @@ import com.napier.set08103.group27.data.DataStore;
 import com.napier.set08103.group27.data.District;
 import com.napier.set08103.group27.data.World;
 
+import java.sql.SQLException;
 import java.util.List;
 
 // Class for creating the data tree from the objects built
 public class DataTreeBuilder {
 
     // Method to create the DataObject tree stemming from the World object
-    public void buildTree (DatabaseManager database) throws DataBuildException {
+    public void buildTree (DatabaseManager database) throws DataBuildException, SQLException {
         DataStore store = DataStore.getInstance(); // Get world instance
         World world = store.getWorld();
 
