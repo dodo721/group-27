@@ -2,12 +2,20 @@ package com.napier.set08103.group27;
 
 import java.sql.*;
 
-//Class to manage the connection between the program and the database
+/**
+    DatabaseManager is used to manage the connection between the program and the database
+    and to carry out queries on the database.
+ */
 public class DatabaseManager {
 
+    /**
+     * Variable used to provide connection to database.
+     */
     private Connection connection = null;
 
-    //Method to connect to the MySQL database
+    /**
+     * Method to connect to the MySQL database.
+     */
     public void connect()
     {
         try
@@ -46,7 +54,9 @@ public class DatabaseManager {
         }
     }
 
-    //Method to disconnect from the MySQL database
+    /**
+     * Method to disconnect from the MySQL database.
+     */
     public void disconnect()
     {
         //If there is a connection then try and close the connection
@@ -63,6 +73,11 @@ public class DatabaseManager {
         }
     }
 
+    /**
+    Method to carry out an SQL query on the database and return results of the query.
+    @param str : The SQL query for the database
+    @return resultSet : The results from the query
+     */
     public ResultSet query(String str)
     {
         try
