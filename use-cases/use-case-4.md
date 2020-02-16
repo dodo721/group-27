@@ -16,8 +16,6 @@ User Goal.
 
 ### Preconditions
 
-The system is expected to function as normal.
-
 Data Analyst is expected to understand how to use the system/generate reports.
 
 The contents of the database is understood to contain: *Country Code, Country Name, Continent, Region, Surface Area, Year of Independence, Population, Life Expectancy, GNP, GNPOld, Local/Native Country Name, Government Form, Head of State Name, Capital ID, and Country 'Code2'. This is to be from the 'country' table. The 'city' table must also contain City Name and CountryCode.*

@@ -15,9 +15,6 @@ System.
 User Goal.
 
 ### Preconditions
-
-The system is expected to function as normal.
-
 Data Analyst is expected to understand how to use the system/generate reports.
 
 The contents of the database is understood to contain: *Country Code, Language, IsOfficial (Boolean), and Percentage of country that speaks language.*
