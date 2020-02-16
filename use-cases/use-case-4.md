@@ -1,10 +1,10 @@
-# Use Case 3: Produce a Report on City Statistics
+# Use Case 4: Produce a Report on Country Statistics
 
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
 
-As a ***Data Analyst***, I want to generate a ***City Report***, including data such as population by city and enclosing district, for ***statistical analysis*** for further usage by my organisation.
+As a ***Data Analyst***, I want to generate a ***Country Report***, including data such as country code, for ***statistical analysis*** for further usage by my organisation.
 
 ### Scope
 
@@ -20,10 +20,11 @@ The system is expected to function as normal.
 
 Data Analyst is expected to understand how to use the system/generate reports.
 
-The contents of the database is understood to contain: City ID, City Name, Country Code, District, and Population from the 'city' table. The 'country' table must also contain Country Name.  
+The contents of the database is understood to contain: *Country Code, Country Name, Continent, Region, Surface Area, Year of Independence, Population, Life Expectancy, GNP, GNPOld, Local/Native Country Name, Government Form, Head of State Name, Capital ID, and Country 'Code2'. This is to be from the 'country' table. The 'city' table must also contain City Name and CountryCode.*
+  
 ### Success End Condition
 
-System produces a City Report containing: *City Name, Country Name, District, and City Population.*
+System produces a Country Report containing: *Country Code, Country Name, Continent, Region, Population, and Capital City.*
 
 ### Failed End Condition
 
@@ -39,13 +40,13 @@ Data Analyst.
 
 ### Trigger
 
-Data Analyst uses System Interface to generate City Report.
+Data Analyst uses System Interface to generate Country Report.
 
 ## MAIN SUCCESS SCENARIO
 
-1. Data Analyst opens system interface and selects desired query/report, City in this context.
+1. Data Analyst opens system interface and selects desired query/report, Country in this context.
 2. Data Analyst sends query.
-3. Data Analyst is provided with report containing City Statistics.
+3. Data Analyst is provided with report containing Country Statistics.
 4. Data Analyst uses report for statistical analysis and provides processed data to relevant personnel.
 
 ## EXTENSIONS

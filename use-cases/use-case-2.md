@@ -23,7 +23,7 @@ Data Analyst is expected to understand how to use the system/generate reports.
 The contents of the database is understood to contain: City ID, City Name, Country Code, District, and Population from the 'city' table. The 'country' table must also contain Capital ID and Country Name.  
 ### Success End Condition
 
-System produces a Capital City Report containing City Name, Country Name, and City Population.
+System produces a Capital City Report containing: *City Name, Country Name, and City Population.*
 
 ### Failed End Condition
 

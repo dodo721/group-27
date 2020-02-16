@@ -23,7 +23,7 @@ Data Analyst is expected to understand how to use the system/generate reports.
 The contents of the database is understood to contain: *Country Code, Language, IsOfficial (Boolean), and Percentage of country that speaks language.*
 ### Success End Condition
 
-System produces a Language Report containing the number of people who speak defined languages, and number of speakers as percentage of world population. **This is to be sorted by greatest number to smallest**. 
+System produces a Language Report containing: *the number of people who speak defined languages, and number of speakers as percentage of world population.* **This is to be sorted by greatest number to smallest**. 
 
 ### Failed End Condition
 
