@@ -57,7 +57,7 @@ Data Analyst uses System Interface to generate Capital City Report.
 
 ## SUB-VARIATIONS
 
-????
+None.
 
 ## SCHEDULE
 

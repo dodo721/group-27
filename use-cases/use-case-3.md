@@ -57,7 +57,7 @@ Data Analyst uses System Interface to generate City Report.
 
 ## SUB-VARIATIONS
 
-????
+None.
 
 ## SCHEDULE
 

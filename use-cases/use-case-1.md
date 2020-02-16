@@ -57,7 +57,7 @@ Data Analyst uses System Interface to generate selected (Languages) report.
 
 ## SUB-VARIATIONS
 
-????
+None.
 
 ## SCHEDULE
 

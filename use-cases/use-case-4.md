@@ -58,7 +58,7 @@ Data Analyst uses System Interface to generate Country Report.
 
 ## SUB-VARIATIONS
 
-????
+None.
 
 ## SCHEDULE
 

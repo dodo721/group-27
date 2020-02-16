@@ -59,7 +59,7 @@ Data Analyst uses System Interface to generate Population Report.
 
 ## SUB-VARIATIONS
 
-????
+None.
 
 ## SCHEDULE
 
