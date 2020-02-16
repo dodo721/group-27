@@ -15,17 +15,22 @@ public class CityBuilder extends DataObjectBuilder {
         super(database);
     }
 
+    /**
+     * Returns a list of city objects built from the SQL database
+     * @return List of cities
+     * @throws SQLException from database
+     */
     @Override
     public List<DataObject> build() throws SQLException {
         String query = "SELECT * FROM city";
         ResultSet rs = database.query(query);
         ArrayList<DataObject> cities = new ArrayList<DataObject>();
-        while (rs.next()) {
+        while (rs.next()) {  // Convert result set to city list
             String name = rs.getString("Name");
             int id = rs.getInt("ID");
             int population = rs.getInt("Population");
             String parent = rs.getString("District");
-            City city = new City(name, Integer.toString(id), population, parent);
+            City city = new City(name, Integer.toString(id), population, parent); // Complete city build
             cities.add(city);
         }
         return cities;

@@ -17,6 +17,13 @@ public abstract class DataObjectBuilder {
 
     // Abstract methods to be populated with SQL queries to fetch needed data,
     // which can be specified to each object type within each implementation
+
+    /**
+     * Builds a list of data objects for the appropriate type using SQL data
+     * to be used by the DataTreeBuilder and eventually stored internally
+     * @return List of data objects
+     * @throws SQLException from database
+     */
     public abstract List<DataObject> build() throws SQLException;
 
 }
