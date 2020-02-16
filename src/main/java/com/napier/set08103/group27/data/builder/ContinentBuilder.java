@@ -11,26 +11,6 @@ public class ContinentBuilder extends DataObjectBuilder {
     }
 
     @Override
-    public String getName() {
-        return null;
-    }
-
-    @Override
-    public String getId() {
-        return null;
-    }
-
-    @Override
-    public int getPopulation() {
-        return 0;
-    }
-
-    @Override
-    public String getParentName() {
-        return null;
-    }
-
-    @Override
     public List<DataObject> build() {
         return null;
     }
