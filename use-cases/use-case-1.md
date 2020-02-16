@@ -39,7 +39,7 @@ Data Analyst.
 
 ### Trigger
 
-Data Analyst uses System Interface to generate selected (Languages) report.
+Data Analyst uses System Interface to generate Languages report.
 
 ## MAIN SUCCESS SCENARIO
 
