@@ -38,7 +38,12 @@ class DataStore {
 
     public void addToLanguages(ArrayList<Languages> languagesList)
     {
-        languageHashMap.put(languagesList.get(0).getCountryCode(), languagesList);
+        if(languageHashMap.get(languagesList.get(0).getCountryCode()) != null)
+        {
+            languageHashMap.replace(languagesList.get(0).getCountryCode(), languagesList);
+        } else {
+            languageHashMap.put(languagesList.get(0).getCountryCode(), languagesList);
+        }
     }
 
     public HashMap<Integer, Country> getCountriesHashMap()
