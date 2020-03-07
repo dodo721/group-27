@@ -203,7 +203,7 @@ public class DatabaseManager {
                 double percentage = resultSet.getDouble("Percentage");
 
                 boolean isOfficial = false;
-                if(isOfficialString == "T")
+                if(isOfficialString.equals("T"))
                 {
                     isOfficial = true;
                 }
