@@ -18,11 +18,14 @@ public class Main {
         db.readCities();
         db.readLanguages();
 
-        //May be something wrong with way of adding languages as size for all is just 4
         for(String s : dataStore.getLanguageHashMap().keySet())
         {
-            System.out.println(s + "=" + dataStore.getLanguageHashMap().get(s).size());
+            for(int i = 0; i < dataStore.getLanguageHashMap().get(s).size(); i++)
+            {
+                System.out.println(s + "=" + dataStore.getLanguageHashMap().get(s).get(i).getLanguage());
+            }
         }
+
 
         //Need to test if the get methods from the DataStore singleton work and output correct data
 

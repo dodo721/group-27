@@ -41,8 +41,10 @@ class DataStore {
         if(languageHashMap.get(languagesList.get(0).getCountryCode()) != null)
         {
             languageHashMap.replace(languagesList.get(0).getCountryCode(), languagesList);
+            System.out.println("Replaced Hashmap value with updated");
         } else {
             languageHashMap.put(languagesList.get(0).getCountryCode(), languagesList);
+            System.out.println("Added to Hashmap");
         }
     }
 

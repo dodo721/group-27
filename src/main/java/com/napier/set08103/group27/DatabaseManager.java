@@ -230,6 +230,7 @@ public class DatabaseManager {
                     dataStore.addToLanguages(languagesList);
                     languagesList.clear();
                     languagesList.add(languages);
+                    dataStore.addToLanguages(languagesList);
                 }
             }
         }
