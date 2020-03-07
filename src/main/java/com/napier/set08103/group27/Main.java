@@ -9,11 +9,14 @@ public class Main {
         //Connecting to the database
         db.connect();
 
-        System.out.println("Test");
-        //TODO: put SQL statements/methods to get from the database here
+        //Reading data from SQL database - might be best to merge these into 1 method
+        db.readCountries();
+        db.readCities();
+        db.readLanguages();
+
+        //Need to test if the get methods from the DataStore singleton work and output correct data
 
         //Closing the connection to database
         db.disconnect();
     }
-
 }
