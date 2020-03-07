@@ -222,6 +222,7 @@ public class DatabaseManager {
                 else if(languagesList.get(0).getCountryCode().equals(languages.getCountryCode()))
                 {
                     languagesList.add(languages);
+                    dataStore.addToLanguages(languagesList);
                 } else {
                     //else add the language list to the hashmap, clear the list and then insert language for next country
                     dataStore.addToLanguages(languagesList);
