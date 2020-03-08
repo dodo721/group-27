@@ -223,16 +223,14 @@ public class DatabaseManager {
                 {
                     languagesList.add(languages);
                     System.out.println("Added (1): " + language + " To: " + languages.getCountryCode());
-                    dataStore.addToLanguages(languagesList);
                 } else {
                     //else add the language list to the hashmap, clear the list and then insert language for next country
-                    System.out.println("Added (2): " + language + " To: " + languages.getCountryCode());
                     dataStore.addToLanguages(languagesList);
                     languagesList.clear();
                     languagesList.add(languages);
-                    dataStore.addToLanguages(languagesList);
                 }
             }
+            dataStore.addToLanguages(languagesList);
         }
         catch (Exception e)
         {

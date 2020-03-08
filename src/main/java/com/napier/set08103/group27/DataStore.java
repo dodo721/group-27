@@ -38,13 +38,11 @@ class DataStore {
 
     public void addToLanguages(ArrayList<Languages> languagesList)
     {
-        if(languageHashMap.get(languagesList.get(0).getCountryCode()) != null)
+        languageHashMap.put(languagesList.get(0).getCountryCode(), languagesList);
+        System.out.println("Added to hashmap");
+        for(int i = 0; i < languagesList.size(); i++)
         {
-            languageHashMap.replace(languagesList.get(0).getCountryCode(), languagesList);
-            System.out.println("Replaced Hashmap value with updated");
-        } else {
-            languageHashMap.put(languagesList.get(0).getCountryCode(), languagesList);
-            System.out.println("Added to Hashmap");
+            System.out.println("Lang: " + languagesList.get(i).getLanguage() + " To: " + languagesList.get(i).getCountryCode());
         }
     }
 
