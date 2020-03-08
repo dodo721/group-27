@@ -222,7 +222,6 @@ public class DatabaseManager {
                 else if(languagesList.get(0).getCountryCode().equals(languages.getCountryCode()))
                 {
                     languagesList.add(languages);
-                    System.out.println("Added (1): " + language + " To: " + languages.getCountryCode());
                 } else {
                     //else add the language list to the hashmap, clear the list and then insert language for next country
                     dataStore.addToLanguages(languagesList);
@@ -230,6 +229,7 @@ public class DatabaseManager {
                     languagesList.add(languages);
                 }
             }
+            //Adding the languages of last country to hashmap
             dataStore.addToLanguages(languagesList);
         }
         catch (Exception e)

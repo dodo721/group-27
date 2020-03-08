@@ -18,12 +18,10 @@ public class Main {
         db.readCities();
         db.readLanguages();
 
-        for(String s : dataStore.getLanguageHashMap().keySet())
+        //testing all languages for country code "ZAF" are correct
+        for(int i = 0; i < dataStore.getLanguageHashMap().get("ZAF").size(); i++)
         {
-            for(int i = 0; i < dataStore.getLanguageHashMap().get(s).size(); i++)
-            {
-                System.out.println(s + "=" + dataStore.getLanguageHashMap().get(s).get(i).getLanguage());
-            }
+            System.out.println("ZAF: " + dataStore.getLanguageHashMap().get("ZAF").get(i).getLanguage());
         }
 
 
