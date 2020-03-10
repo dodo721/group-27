@@ -40,12 +40,8 @@ public class DataStore {
     {
         //Making list for each key in hashmap so that all keys don't use same list of languages
         String countryCode = languagesList.get(0).getCountryCode();
-        if (languageHashMap.keySet().contains(countryCode)) {
-            ArrayList list = new ArrayList(languagesList);
-            languageHashMap.put(countryCode, list);
-        } else {
-            languageHashMap.get(countryCode).addAll(languagesList);
-        }
+        ArrayList list = new ArrayList(languagesList);
+        languageHashMap.put(countryCode, list);
     }
 
     public HashMap<String, Country> getCountriesHashMap()

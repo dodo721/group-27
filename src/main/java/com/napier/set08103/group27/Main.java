@@ -11,7 +11,7 @@ import java.util.Iterator;
 public class Main {
 
     private static DataStore dataStore = DataStore.getInstance();
-    private static ArrayList<ReportGenerator> reports;
+    private static ArrayList<ReportGenerator> reports = new ArrayList<ReportGenerator>();
 
     public static void main (String[] args) {
 
@@ -32,7 +32,10 @@ public class Main {
         }*/
 
         for (City city : dataStore.getCityHashMap().values()) {
-            reports.add(new CityReportGenerator(city));
+            if(city != null)
+            {
+                reports.add(new CityReportGenerator(city));
+            }
         }
 
         for (ReportGenerator report : reports) {
