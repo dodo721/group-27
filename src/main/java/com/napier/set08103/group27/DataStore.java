@@ -39,8 +39,13 @@ class DataStore {
     public void addToLanguages(ArrayList<Languages> languagesList)
     {
         //Making list for each key in hashmap so that all keys don't use same list of languages
-        ArrayList list = new ArrayList(languagesList);
-        languageHashMap.put(languagesList.get(0).getCountryCode(), list);
+        String countryCode = languagesList.get(0).getCountryCode();
+        if (languageHashMap.keySet().contains(countryCode)) {
+            ArrayList list = new ArrayList(languagesList);
+            languageHashMap.put(countryCode, list);
+        } else {
+            languageHashMap.get(countryCode).addAll(languagesList);
+        }
     }
 
     public HashMap<String, Country> getCountriesHashMap()
