@@ -7,7 +7,7 @@ import com.napier.set08103.group27.data.Languages;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-class DataStore {
+public class DataStore {
     private static DataStore instance;
 
     private HashMap<Integer, City> cityHashMap = new HashMap<Integer, City>(); //Int key will be the city ID
