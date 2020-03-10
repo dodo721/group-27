@@ -1,6 +1,8 @@
 package com.napier.set08103.group27;
 
 import com.napier.set08103.group27.data.City;
+import com.napier.set08103.group27.data.Country;
+import com.napier.set08103.group27.report.CitiesInRegionReportGenerator;
 import com.napier.set08103.group27.report.CityReportGenerator;
 import com.napier.set08103.group27.report.ReportGenerator;
 
@@ -31,11 +33,8 @@ public class Main {
             System.out.println("ZAF: " + dataStore.getLanguageHashMap().get("ZAF").get(i).getLanguage());
         }*/
 
-        for (City city : dataStore.getCityHashMap().values()) {
-            if(city != null)
-            {
-                reports.add(new CityReportGenerator(city));
-            }
+        for (Country country : dataStore.getCountriesHashMap().values()) {
+            reports.add(new CitiesInRegionReportGenerator(country.getRegion()));
         }
 
         for (ReportGenerator report : reports) {
