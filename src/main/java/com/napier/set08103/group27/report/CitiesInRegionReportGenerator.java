@@ -11,7 +11,7 @@ public class CitiesInRegionReportGenerator implements ReportGenerator {
 
     public static Comparator<City> cityPopulationDescending = new Comparator<>() {
         public int compare(City c1, City c2) {
-            return c1.getPopulation() - c2.getPopulation();
+            return c1.getPopulation() + c2.getPopulation();
         }
     };
 
