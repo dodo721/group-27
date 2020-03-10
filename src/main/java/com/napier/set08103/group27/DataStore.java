@@ -11,7 +11,7 @@ class DataStore {
     private static DataStore instance;
 
     private HashMap<Integer, City> cityHashMap = new HashMap<Integer, City>(); //Int key will be the city ID
-    private HashMap<Integer, Country> countryHashMap = new HashMap<Integer, Country>(); //Int key will be the capital city
+    private HashMap<String, Country> countryHashMap = new HashMap<String, Country>(); //Key will be country code
     private HashMap<String, ArrayList<Languages>> languageHashMap = new HashMap<String, ArrayList<Languages>>();
     //key for languages will have country code as key and will have a list of language objects
 
@@ -28,7 +28,7 @@ class DataStore {
 
     public void addToCountry(Country country)
     {
-        countryHashMap.put(country.getCapital() ,country);
+        countryHashMap.put(country.getCode() ,country);
     }
 
     public void addToCity(City city)
@@ -43,7 +43,7 @@ class DataStore {
         languageHashMap.put(languagesList.get(0).getCountryCode(), list);
     }
 
-    public HashMap<Integer, Country> getCountriesHashMap()
+    public HashMap<String, Country> getCountriesHashMap()
     {
         return countryHashMap;
     }
