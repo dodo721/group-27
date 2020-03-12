@@ -27,12 +27,6 @@ public class Main {
         db.readCities();
         db.readLanguages();
 
-        //testing all languages for country code "ZAF" are correct
-        /*for(int i = 0; i < dataStore.getLanguageHashMap().get("ZAF").size(); i++)
-        {
-            System.out.println("ZAF: " + dataStore.getLanguageHashMap().get("ZAF").get(i).getLanguage());
-        }*/
-
         for (Country country : dataStore.getCountriesHashMap().values()) {
             reports.add(new CitiesInRegionReportGenerator(country.getRegion()));
         }
@@ -43,8 +37,6 @@ public class Main {
                 System.out.println(line);
             }
         }
-
-        //Need to test if the get methods from the DataStore singleton work and output correct data
 
         //Closing the connection to database
         db.disconnect();
