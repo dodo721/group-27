@@ -97,7 +97,21 @@ public class DataStoreTest {
 
         for(String key : dataStore.getCountriesHashMap().keySet())
         {
-            System.out.println("Country: " + dataStore.getCountriesHashMap().get(key).getCode() + ", " + dataStore.getCountriesHashMap().get(key).getName());
+            System.out.println("Country: " + dataStore.getCountriesHashMap().get(key).getCode()
+                    + ", " + dataStore.getCountriesHashMap().get(key).getName()
+                    + ", " + dataStore.getCountriesHashMap().get(key).getContinent()
+                    + ", " + dataStore.getCountriesHashMap().get(key).getRegion()
+                    + ", " + dataStore.getCountriesHashMap().get(key).getSurfaceArea()
+                    + ", " + dataStore.getCountriesHashMap().get(key).getIndepYear()
+                    + ", " + dataStore.getCountriesHashMap().get(key).getPopulation()
+                    + ", " + dataStore.getCountriesHashMap().get(key).getLifeExpectancy()
+                    + ", " + dataStore.getCountriesHashMap().get(key).getGNP()
+                    + ", " + dataStore.getCountriesHashMap().get(key).getGNPOld()
+                    + ", " + dataStore.getCountriesHashMap().get(key).getLocalName()
+                    + ", " + dataStore.getCountriesHashMap().get(key).getGovernmentForm()
+                    + ", " + dataStore.getCountriesHashMap().get(key).getHeadOfState()
+                    + ", " + dataStore.getCountriesHashMap().get(key).getCapital()
+                    + ", " + dataStore.getCountriesHashMap().get(key).getCode2());
         }
     }
 
@@ -115,7 +129,11 @@ public class DataStoreTest {
 
         for(int key : dataStore.getCityHashMap().keySet())
         {
-            System.out.println("City: " + dataStore.getCityHashMap().get(key).getId() + ", " + dataStore.getCityHashMap().get(key).getName());
+            System.out.println("City: " + dataStore.getCityHashMap().get(key).getId()
+                    + ", " + dataStore.getCityHashMap().get(key).getCountryCode()
+                    + ", " + dataStore.getCityHashMap().get(key).getName()
+                    + ", " + dataStore.getCityHashMap().get(key).getDistrict()
+                    + ", " + dataStore.getCityHashMap().get(key).getPopulation());
         }
     }
 
@@ -127,11 +145,9 @@ public class DataStoreTest {
         String countryCode = "XYZ";
         String lang = "English";
         String lang2 = "French";
-        boolean isOfficial = true;
-        double percentage = 80.5;
 
-        Languages language = new Languages(countryCode, lang, isOfficial, percentage);
-        Languages language2 = new Languages(countryCode, lang2, isOfficial, percentage);
+        Languages language = new Languages(countryCode, lang, true, 80.5);
+        Languages language2 = new Languages(countryCode, lang2, false, 19.5);
 
         languageList.add(language);
         languageList.add(language2);
@@ -143,7 +159,9 @@ public class DataStoreTest {
             System.out.println("Country Code: " + key);
             for(int i = 0; i < dataStore.getLanguageHashMap().get(key).size(); i++)
             {
-                System.out.println("Language: " + dataStore.getLanguageHashMap().get(key).get(i).getLanguage());
+                System.out.println("Language: " + dataStore.getLanguageHashMap().get(key).get(i).getLanguage()
+                        + ", " + dataStore.getLanguageHashMap().get(key).get(i).isOfficial()
+                        + ", " + dataStore.getLanguageHashMap().get(key).get(i).getPercentage());
             }
         }
     }
