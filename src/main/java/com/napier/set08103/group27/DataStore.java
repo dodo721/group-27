@@ -28,20 +28,29 @@ public class DataStore {
 
     public void addToCountry(Country country)
     {
-        countryHashMap.put(country.getCode() ,country);
+        if(country != null)
+        {
+            countryHashMap.put(country.getCode() ,country);
+        }
     }
 
     public void addToCity(City city)
     {
-        cityHashMap.put(city.getId(), city);
+        if(city != null)
+        {
+            cityHashMap.put(city.getId(), city);
+        }
     }
 
     public void addToLanguages(ArrayList<Languages> languagesList)
     {
-        //Making list for each key in hashmap so that all keys don't use same list of languages
-        String countryCode = languagesList.get(0).getCountryCode();
-        ArrayList list = new ArrayList(languagesList);
-        languageHashMap.put(countryCode, list);
+        if(languagesList != null)
+        {
+            //Making list for each key in hashmap so that all keys don't use same list of languages
+            String countryCode = languagesList.get(0).getCountryCode();
+            ArrayList list = new ArrayList(languagesList);
+            languageHashMap.put(countryCode, list);
+        }
     }
 
     public HashMap<String, Country> getCountriesHashMap()
