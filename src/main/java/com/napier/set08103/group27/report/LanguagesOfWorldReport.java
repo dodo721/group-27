@@ -2,11 +2,15 @@ package com.napier.set08103.group27.report;
 
 import com.napier.set08103.group27.DataStore;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
 public class LanguagesOfWorldReport implements ReportGenerator {
+
+    private long worldPopulation = 0;
+    DecimalFormat df = new DecimalFormat("#.000");
 
     public LanguagesOfWorldReport(){}
 
@@ -20,8 +24,14 @@ public class LanguagesOfWorldReport implements ReportGenerator {
         long speakersSpanish = 0;
         long speakersArabic = 0;
 
-
         DataStore dataStore = DataStore.getInstance();
+
+        for(String key : dataStore.getCountriesHashMap().keySet())
+        {
+            worldPopulation += dataStore.getCountriesHashMap().get(key).getPopulation();
+        }
+
+        System.out.println("World Pop: " + worldPopulation);
 
         for(String key : dataStore.getLanguageHashMap().keySet())
         {
@@ -76,26 +86,32 @@ public class LanguagesOfWorldReport implements ReportGenerator {
 
             if(array[i] == speakersEnglish)
             {
-                report[reportPosition] = "Number of speakers (English): " + speakersEnglish;
+                report[reportPosition] = "Number of speakers (English): " + speakersEnglish + ", Percentage of speakers: " + getPercentageOfWorld(speakersEnglish) + "%";
             }
             if(array[i] == speakersChinese)
             {
-                report[reportPosition] = "Number of speakers (Chinese): " + speakersChinese;
+                report[reportPosition] = "Number of speakers (Chinese): " + speakersChinese + ", Percentage of speakers: " + getPercentageOfWorld(speakersChinese) + "%";
             }
             if(array[i] == speakersSpanish)
             {
-                report[reportPosition] = "Number of speakers (Spanish): " + speakersSpanish;
+                report[reportPosition] = "Number of speakers (Spanish): " + speakersSpanish + ", Percentage of speakers: " + getPercentageOfWorld(speakersSpanish) + "%";
             }
             if(array[i] == speakersArabic)
             {
-                report[reportPosition] = "Number of speakers (Arabic): " + speakersArabic;
+                report[reportPosition] = "Number of speakers (Arabic): " + speakersArabic + ", Percentage of speakers: " + getPercentageOfWorld(speakersArabic) + "%";
             }
             if(array[i] == speakersHindi)
             {
-                report[reportPosition] = "Number of speakers (Hindi): " + speakersHindi;
+                report[reportPosition] = "Number of speakers (Hindi): " + speakersHindi + ", Percentage of speakers: " + getPercentageOfWorld(speakersHindi) + "%";
             }
         }
 
         return report;
+    }
+
+    private double getPercentageOfWorld(double speakers)
+    {
+        double percentage = (speakers/worldPopulation)*100;
+        return Double.parseDouble(df.format(percentage));
     }
 }
