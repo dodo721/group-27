@@ -3,9 +3,7 @@ package com.napier.set08103.group27.report;
 import com.napier.set08103.group27.DataStore;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class LanguagesOfWorldReport implements ReportGenerator {
 
