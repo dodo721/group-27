@@ -2,6 +2,7 @@ package com.napier.set08103.group27;
 
 import com.napier.set08103.group27.data.City;
 import com.napier.set08103.group27.data.Country;
+import com.napier.set08103.group27.report.CapitalCityReportGenerator;
 import com.napier.set08103.group27.report.CitiesInRegionReportGenerator;
 import com.napier.set08103.group27.report.CityReportGenerator;
 import com.napier.set08103.group27.report.ReportGenerator;
@@ -28,7 +29,7 @@ public class Main {
         db.readLanguages();
 
         for (Country country : dataStore.getCountriesHashMap().values()) {
-            reports.add(new CitiesInRegionReportGenerator(country.getRegion()));
+            reports.add(new CapitalCityReportGenerator(country.getCapital()));
         }
 
         for (ReportGenerator report : reports) {
