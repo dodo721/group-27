@@ -1,16 +1,9 @@
 package com.napier.set08103.group27;
 
-import com.napier.set08103.group27.data.City;
-import com.napier.set08103.group27.data.Country;
-import com.napier.set08103.group27.data.Languages;
-import com.napier.set08103.group27.report.CitiesInRegionReportGenerator;
-import com.napier.set08103.group27.report.CityReportGenerator;
 import com.napier.set08103.group27.report.LanguagesOfWorldReport;
 import com.napier.set08103.group27.report.ReportGenerator;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Main {
 
