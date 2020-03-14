@@ -22,7 +22,7 @@ public class Main {
         DatabaseManager db = new DatabaseManager();
 
         //Connecting to the database
-        db.connect();
+        db.connect("db:3306");
 
         //Reading data from SQL database - might be best to merge these into 1 method
         db.readCountries();
