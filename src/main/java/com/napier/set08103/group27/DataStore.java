@@ -67,4 +67,11 @@ public class DataStore {
     {
         return languageHashMap;
     }
+
+    public void clear()
+    {
+        languageHashMap.clear();
+        cityHashMap.clear();
+        countryHashMap.clear();
+    }
 }
