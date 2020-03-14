@@ -113,6 +113,7 @@ public class DataStoreTest {
                     + ", " + dataStore.getCountriesHashMap().get(key).getCapital()
                     + ", " + dataStore.getCountriesHashMap().get(key).getCode2());
         }
+        dataStore.clear();
     }
 
     @Test
@@ -135,6 +136,7 @@ public class DataStoreTest {
                     + ", " + dataStore.getCityHashMap().get(key).getDistrict()
                     + ", " + dataStore.getCityHashMap().get(key).getPopulation());
         }
+        dataStore.clear();
     }
 
     @Test
@@ -164,5 +166,6 @@ public class DataStoreTest {
                         + ", " + dataStore.getLanguageHashMap().get(key).get(i).getPercentage());
             }
         }
+        dataStore.clear();
     }
 }
