@@ -25,7 +25,7 @@ jobs:
       script: mvn test -Dtest=com.napier.set08103.group27.DataStoreTest -e
     - stage: integration tests
       jdk: oraclejdk11
-      script: echo "Integration Test"
+      script: mvn test -Dtest=com.napier.set08103.group27.AppIntegrationTest -e
     - stage: deploy
       install: skip
       jdk: oraclejdk11
