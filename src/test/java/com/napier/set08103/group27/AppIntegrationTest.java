@@ -14,7 +14,7 @@ public class AppIntegrationTest {
     static void init()
     {
         databaseManager = new DatabaseManager();
-        databaseManager.connect("http://192.168.99.100:33060");
+        databaseManager.connect("localhost:33060");
     }
 
     @Test
