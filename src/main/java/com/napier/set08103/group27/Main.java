@@ -1,5 +1,7 @@
 package com.napier.set08103.group27;
 
+import com.napier.set08103.group27.data.Country;
+import com.napier.set08103.group27.report.CountryReport;
 import com.napier.set08103.group27.report.LanguagesOfWorldReport;
 import com.napier.set08103.group27.report.ReportGenerator;
 
@@ -42,6 +44,11 @@ public class Main {
             }
         }
          */
+
+        //Loop to get country reports.
+        for (Country country : dataStore.getCountriesHashMap().values()) {
+            reports.add(new CountryReport(country));
+        }
 
         //Adding report containing number of speakers of a language in the world
         reports.add(new LanguagesOfWorldReport());
