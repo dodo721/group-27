@@ -3,9 +3,11 @@ package com.napier.set08103.group27;
 import com.napier.set08103.group27.data.City;
 import com.napier.set08103.group27.data.Country;
 import com.napier.set08103.group27.data.Languages;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -84,5 +86,13 @@ public class AppIntegrationTest {
         assertEquals(false, languages.get(3).isOfficial());
         assertEquals(7.4, languages.get(3).getPercentage());
         dataStore.clear();
+    }
+
+    @Test
+    void testDisconnect()
+    {
+        DatabaseManager dbmanager = new DatabaseManager();
+        dbmanager.connect("localhost:33060");
+        dbmanager.disconnect();
     }
 }
