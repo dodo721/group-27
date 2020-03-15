@@ -39,7 +39,7 @@ public class AppIntegrationTest {
     void testGetCountry()
     {
         databaseManager.readCountries();
-        Country country = dataStore.getCountriesHashMap().get("AGO");
+        Country country = dataStore.getCountriesHashMap().get("AFG");
         assertEquals("AFG", country.getCode());
         assertEquals("Afghanistan", country.getName());
         assertEquals("Asia", country.getContinent());

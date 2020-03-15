@@ -45,7 +45,6 @@ public class DatabaseManager {
                 Thread.sleep(10000);
 
                 //Getting connection to the database
-                //jdbc:mysql://db:3306/world?useSSL=false
                 connection = DriverManager.getConnection("jdbc:mysql://" + location + "/world?allowPublicKeyRetrieval=true&useSSL=false", "root", "password");
                 System.out.println("Successfully connected.");
                 break;
