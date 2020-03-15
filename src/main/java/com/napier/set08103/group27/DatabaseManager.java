@@ -27,7 +27,7 @@ public class DatabaseManager {
         try
         {
             //Loading the SQL driver
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         }
         catch(ClassNotFoundException e)
         {
