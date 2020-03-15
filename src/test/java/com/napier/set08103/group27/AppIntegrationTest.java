@@ -31,6 +31,7 @@ public class AppIntegrationTest {
         assertEquals("AFG", city.getCountryCode());
         assertEquals("Herat", city.getDistrict());
         assertEquals(186800, city.getPopulation());
+        dataStore.clear();
     }
 
     @Test
@@ -53,6 +54,7 @@ public class AppIntegrationTest {
         assertEquals("Mohammad Omar", country.getHeadOfState());
         assertEquals(1, country.getCapital());
         assertEquals("AF", country.getCode2());
+        dataStore.clear();
     }
 
     @Test
@@ -80,5 +82,6 @@ public class AppIntegrationTest {
         assertEquals("Spanish", languages.get(3).getLanguage());
         assertEquals(false, languages.get(3).isOfficial());
         assertEquals(7.4, languages.get(3).getPercentage());
+        dataStore.clear();
     }
 }
