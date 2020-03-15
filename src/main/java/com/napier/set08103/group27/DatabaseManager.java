@@ -81,10 +81,9 @@ public class DatabaseManager {
     }
 
     /**
-    Method to carry out an SQL statement to get all the countries in the database
+    Method to carry out an SQL statement to get all the countries in the database and add to hashmap in DataStore
      */
 
-    //Might want to add all the database reads together in 1 method later on
     public void readCountries()
     {
         try
@@ -143,6 +142,7 @@ public class DatabaseManager {
         }
     }
 
+    //Method to read all cities in database and add to city hashmap in the DataStore
     public void readCities()
     {
         try
@@ -180,6 +180,7 @@ public class DatabaseManager {
         }
     }
 
+    //Method to read all languages that are spoken in a country and add to languages hashmap
     public void readLanguages()
     {
         try {

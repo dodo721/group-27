@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class LanguagesOfWorldReport implements ReportGenerator {
 
     private long worldPopulation = 0;
-    DecimalFormat df = new DecimalFormat("#.000");
+    DecimalFormat df = new DecimalFormat("#.000"); //Using this to give percentage of speaker output to 3 decimal places
 
     public LanguagesOfWorldReport(){}
 
@@ -24,6 +24,7 @@ public class LanguagesOfWorldReport implements ReportGenerator {
 
         DataStore dataStore = DataStore.getInstance();
 
+        //Adding population of all countries in hashmap together
         for(String key : dataStore.getCountriesHashMap().keySet())
         {
             worldPopulation += dataStore.getCountriesHashMap().get(key).getPopulation();
@@ -31,10 +32,14 @@ public class LanguagesOfWorldReport implements ReportGenerator {
 
         System.out.println("World Pop: " + worldPopulation);
 
+        //Goes over every country code
         for(String key : dataStore.getLanguageHashMap().keySet())
         {
+            //Goes over every language in array list
             for(int i = 0; i < dataStore.getLanguageHashMap().get(key).size(); i++)
             {
+                //If language is English then calculate number of population who speak English in this country
+                //then add to variable to store total number of English speakers in world
                 if(dataStore.getLanguageHashMap().get(key).get(i).getLanguage().equals("English"))
                 {
                     int populationThisKey = dataStore.getCountriesHashMap().get(key).getPopulation();
@@ -107,6 +112,7 @@ public class LanguagesOfWorldReport implements ReportGenerator {
         return report;
     }
 
+    //Will be used to calculate the percentage of the world population that speaks a language passed in this function
     private double getPercentageOfWorld(double speakers)
     {
         double percentage = (speakers/worldPopulation)*100;
