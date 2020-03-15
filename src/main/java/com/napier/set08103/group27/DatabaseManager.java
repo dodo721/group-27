@@ -1,6 +1,11 @@
 package com.napier.set08103.group27;
 
+import com.napier.set08103.group27.data.City;
+import com.napier.set08103.group27.data.Country;
+import com.napier.set08103.group27.data.Languages;
+
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
     DatabaseManager is used to manage the connection between the program and the database
@@ -12,16 +17,17 @@ public class DatabaseManager {
      * Variable used to provide connection to database.
      */
     private Connection connection = null;
+    private DataStore dataStore = DataStore.getInstance();
 
     /**
      * Method to connect to the MySQL database.
      */
-    public void connect()
+    public void connect(String location)
     {
         try
         {
             //Loading the SQL driver
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         }
         catch(ClassNotFoundException e)
         {
@@ -39,7 +45,7 @@ public class DatabaseManager {
                 Thread.sleep(10000);
 
                 //Getting connection to the database
-                connection = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "password");
+                connection = DriverManager.getConnection("jdbc:mysql://" + location + "/world?allowPublicKeyRetrieval=true&useSSL=false", "root", "password");
                 System.out.println("Successfully connected.");
                 break;
             }
@@ -74,30 +80,163 @@ public class DatabaseManager {
     }
 
     /**
-    Method to carry out an SQL query on the database and return results of the query.
-    @param str : The SQL query for the database
-    @return resultSet : The results from the query
+    Method to carry out an SQL statement to get all the countries in the database and add to hashmap in DataStore
      */
-    public ResultSet query(String str)
+
+    public void readCountries()
     {
         try
         {
             Statement statement = connection.createStatement();
 
-            //The SQL statement that is passed in
-            String strSelect = str;
+            //takes in the table to select from
+            String query = "SELECT Code, " +
+                    "`Name`, " +
+                    "Continent, " +
+                    "Region, " +
+                    "SurfaceArea, " +
+                    "IndepYear, " +
+                    "Population, " +
+                    "LifeExpectancy, " +
+                    "GNP, " +
+                    "GNPOld, " +
+                    "LocalName, " +
+                    "GovernmentForm, " +
+                    "HeadOfState, " +
+                    "Capital, " +
+                    "Code2 " +
+                    "FROM country";
 
             //Executing query
-            ResultSet resultSet = statement.executeQuery(strSelect);
+            ResultSet resultSet = statement.executeQuery(query);
+            while(resultSet.next())
+            {
+                String code = resultSet.getString("Code");
+                String name = resultSet.getString("Name");
+                String continent = resultSet.getString("Continent");
+                String region = resultSet.getString("Region");
+                double surfaceArea = resultSet.getDouble("SurfaceArea");
+                int indepYear = resultSet.getInt("IndepYear");
+                int population = resultSet.getInt("Population");
+                double lifeExpectancy = resultSet.getDouble("LifeExpectancy");
+                double gnp = resultSet.getDouble("GNP");
+                double gnpOld = resultSet.getDouble("GNPOld");
+                String localName = resultSet.getString("LocalName");
+                String governmentForm = resultSet.getString("GovernmentForm");
+                String headOfState = resultSet.getString("HeadOfState");
+                int capital = resultSet.getInt("Capital");
+                String code2 = resultSet.getString("Code2");
 
-            return resultSet;
+                //Debug - check if all countries are being added
+                System.out.println("Added Country: " + name);
+
+                Country country = new Country(code, name, continent, region, surfaceArea, indepYear, population, lifeExpectancy, gnp, gnpOld, localName, governmentForm, headOfState, capital, code2);
+                dataStore.addToCountry(country);
+            }
         }
         catch(Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Couldn't get employee details.");
-            return null;
+            System.out.println("Couldn't get country details.");
         }
     }
-    
+
+    //Method to read all cities in database and add to city hashmap in the DataStore
+    public void readCities()
+    {
+        try
+        {
+            Statement statement = connection.createStatement();
+
+            String query = "SELECT ID, " +
+                    "`Name`, " +
+                    "CountryCode, " +
+                    "District, " +
+                    "Population " +
+                    "FROM city";
+
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while(resultSet.next())
+            {
+                int id = resultSet.getInt("ID");
+                String name = resultSet.getString("Name");
+                String countryCode = resultSet.getString("CountryCode");
+                String district = resultSet.getString("District");
+                int population = resultSet.getInt("Population");
+
+                //debug - check if all cities are being added
+                System.out.println("Added City: " + name);
+
+                City city = new City(id, name, countryCode, district, population);
+                dataStore.addToCity(city);
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Couldn't get city details.");
+        }
+    }
+
+    //Method to read all languages that are spoken in a country and add to languages hashmap
+    public void readLanguages()
+    {
+        try {
+
+            ArrayList<Languages> languagesList = new ArrayList<Languages>();
+
+            Statement statement = connection.createStatement();
+
+            String query = "SELECT CountryCode, " +
+                    "`Language`, " +
+                    "IsOfficial, " +
+                    "Percentage " +
+                    "FROM countrylanguage";
+
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while(resultSet.next())
+            {
+                String countryCode = resultSet.getString("CountryCode");
+                String language = resultSet.getString("Language");
+                String isOfficialString = resultSet.getString("IsOfficial");
+                double percentage = resultSet.getDouble("Percentage");
+
+                boolean isOfficial = false;
+                if(isOfficialString.equals("T"))
+                {
+                    isOfficial = true;
+                }
+
+                Languages languages = new Languages(countryCode, language, isOfficial, percentage);
+
+                //debug - check if all cities are being added
+                System.out.println("Added Language: " + language);
+
+                //If the size of list is 0 then add the language to the list
+                if(languagesList.size() == 0)
+                {
+                    languagesList.add(languages);
+                }
+                //if the country code of the first index is the same as the language to input then add language to list
+                else if(languagesList.get(0).getCountryCode().equals(languages.getCountryCode()))
+                {
+                    languagesList.add(languages);
+                } else {
+                    //else add the language list to the hashmap, clear the list and then insert language for next country
+                    dataStore.addToLanguages(languagesList);
+                    languagesList.clear();
+                    languagesList.add(languages);
+                }
+            }
+            //Adding the languages of last country to hashmap
+            dataStore.addToLanguages(languagesList);
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Couldn't get language details.");
+        }
+    }
 }

@@ -1,19 +1,45 @@
 package com.napier.set08103.group27;
 
+import com.napier.set08103.group27.data.City;
+import com.napier.set08103.group27.data.Country;
+import com.napier.set08103.group27.report.CapitalCityReportGenerator;
+import com.napier.set08103.group27.report.CitiesInRegionReportGenerator;
+import com.napier.set08103.group27.report.CityReportGenerator;
+import com.napier.set08103.group27.report.ReportGenerator;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Main {
+
+    private static DataStore dataStore = DataStore.getInstance();
+    private static ArrayList<ReportGenerator> reports = new ArrayList<ReportGenerator>();
 
     public static void main (String[] args) {
 
         DatabaseManager db = new DatabaseManager();
 
         //Connecting to the database
-        db.connect();
+        db.connect("localhost:33060");
 
-        System.out.println("Test");
-        //TODO: put SQL statements/methods to get from the database here
+        //Reading data from SQL database - might be best to merge these into 1 method
+        db.readCountries();
+        db.readCities();
+        db.readLanguages();
+
+
+        reports.add(new CapitalCityReportGenerator());
+
+
+        for (ReportGenerator report : reports) {
+            String[] contents = report.generate();
+            for (String line : contents) {
+                System.out.println(line);
+            }
+        }
 
         //Closing the connection to database
         db.disconnect();
     }
-
 }

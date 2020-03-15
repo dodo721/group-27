@@ -1,4 +1,4 @@
 FROM openjdk:latest
-COPY ./target/Group27CW-0.1.0.3-jar-with-dependencies.jar /tmp
+COPY ./target/Group27CW.jar /tmp
 WORKDIR /tmp
-ENTRYPOINT ["java", "-jar", "Group27CW-0.1.0.3-jar-with-dependencies.jar"]
+ENTRYPOINT ["java", "-jar", "Group27CW.jar", "db:3306"]
