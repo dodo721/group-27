@@ -10,8 +10,7 @@ public class CapitalCityReportGenerator implements ReportGenerator {
 
     private City city;
     private int id;
-    public CapitalCityReportGenerator(int id) {
-        this.id = id;
+    public CapitalCityReportGenerator() {
     }
 
     @Override
@@ -30,7 +29,7 @@ public class CapitalCityReportGenerator implements ReportGenerator {
             }
         }
 
-        String[] report = new String[cities.size() + 1];
+        String[] report = new String[cities.size()-1];
 
         for (int i = 1; i < report.length; i ++) {
             report[i] = cities.get(i - 1).getName() + ", population " + cities.get(i - 1).getPopulation();

@@ -21,16 +21,16 @@ public class Main {
         DatabaseManager db = new DatabaseManager();
 
         //Connecting to the database
-        db.connect();
+        db.connect("localhost:33060");
 
         //Reading data from SQL database - might be best to merge these into 1 method
         db.readCountries();
         db.readCities();
         db.readLanguages();
 
-        for (Country country : dataStore.getCountriesHashMap().values()) {
-            reports.add(new CapitalCityReportGenerator(country.getCapital()));
-        }
+
+        reports.add(new CapitalCityReportGenerator());
+
 
         for (ReportGenerator report : reports) {
             String[] contents = report.generate();
