@@ -49,7 +49,7 @@ public class AppIntegrationTest {
         assertEquals(22720000, country.getPopulation());
         assertEquals(45.9, country.getLifeExpectancy());
         assertEquals(5976.00, country.getGNP());
-        assertEquals(null, country.getGNPOld());
+        assertEquals(0.0, country.getGNPOld());
         assertEquals("Afganistan/Afqanestan", country.getLocalName());
         assertEquals("Islamic Emirate", country.getGovernmentForm());
         assertEquals("Mohammad Omar", country.getHeadOfState());
