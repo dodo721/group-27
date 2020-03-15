@@ -22,12 +22,12 @@ public class DatabaseManager {
     /**
      * Method to connect to the MySQL database.
      */
-    public void connect()
+    public void connect(String location)
     {
         try
         {
             //Loading the SQL driver
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         }
         catch(ClassNotFoundException e)
         {
@@ -45,7 +45,7 @@ public class DatabaseManager {
                 Thread.sleep(10000);
 
                 //Getting connection to the database
-                connection = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "password");
+                connection = DriverManager.getConnection("jdbc:mysql://" + location + "/world?allowPublicKeyRetrieval=true&useSSL=false", "root", "password");
                 System.out.println("Successfully connected.");
                 break;
             }
@@ -80,10 +80,9 @@ public class DatabaseManager {
     }
 
     /**
-    Method to carry out an SQL statement to get all the countries in the database
+    Method to carry out an SQL statement to get all the countries in the database and add to hashmap in DataStore
      */
 
-    //Might want to add all the database reads together in 1 method later on
     public void readCountries()
     {
         try
@@ -142,6 +141,7 @@ public class DatabaseManager {
         }
     }
 
+    //Method to read all cities in database and add to city hashmap in the DataStore
     public void readCities()
     {
         try
@@ -179,6 +179,7 @@ public class DatabaseManager {
         }
     }
 
+    //Method to read all languages that are spoken in a country and add to languages hashmap
     public void readLanguages()
     {
         try {

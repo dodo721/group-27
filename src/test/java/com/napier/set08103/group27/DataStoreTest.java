@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class DataStoreTest {
     static DataStore dataStore;
 
@@ -18,7 +20,7 @@ public class DataStoreTest {
     }
 
     @Test
-    void printCountriesWhenInputNull()
+    void addCountriesWhenInputNull()
     {
         dataStore.addToCountry(null);
         for(String key : dataStore.getCountriesHashMap().keySet())
@@ -28,7 +30,7 @@ public class DataStoreTest {
     }
 
     @Test
-    void printCityWhenInputNull()
+    void addCityWhenInputNull()
     {
         dataStore.addToCity(null);
         for(int key : dataStore.getCityHashMap().keySet())
@@ -38,7 +40,7 @@ public class DataStoreTest {
     }
 
     @Test
-    void printLanguageWhenInputNull()
+    void addLanguageWhenInputNull()
     {
         dataStore.addToLanguages(null);
         for(String key : dataStore.getLanguageHashMap().keySet())
@@ -75,7 +77,7 @@ public class DataStoreTest {
     }
 
     @Test
-    void printCountries()
+    void addCountries()
     {
         String code = "ABC";
         String name = "TestCountry";
@@ -113,10 +115,28 @@ public class DataStoreTest {
                     + ", " + dataStore.getCountriesHashMap().get(key).getCapital()
                     + ", " + dataStore.getCountriesHashMap().get(key).getCode2());
         }
+
+        assertEquals("ABC", dataStore.getCountriesHashMap().get(code).getCode());
+        assertEquals("TestCountry", dataStore.getCountriesHashMap().get(code).getName());
+        assertEquals("TestContinent", dataStore.getCountriesHashMap().get(code).getContinent());
+        assertEquals("TestRegion", dataStore.getCountriesHashMap().get(code).getRegion());
+        assertEquals(5.55, dataStore.getCountriesHashMap().get(code).getSurfaceArea());
+        assertEquals(1990, dataStore.getCountriesHashMap().get(code).getIndepYear());
+        assertEquals(50000, dataStore.getCountriesHashMap().get(code).getPopulation());
+        assertEquals(60.5, dataStore.getCountriesHashMap().get(code).getLifeExpectancy());
+        assertEquals(5.5, dataStore.getCountriesHashMap().get(code).getGNP());
+        assertEquals(4.5, dataStore.getCountriesHashMap().get(code).getGNPOld());
+        assertEquals("counTree", dataStore.getCountriesHashMap().get(code).getLocalName());
+        assertEquals("Who", dataStore.getCountriesHashMap().get(code).getGovernmentForm());
+        assertEquals("me", dataStore.getCountriesHashMap().get(code).getHeadOfState());
+        assertEquals(5, dataStore.getCountriesHashMap().get(code).getCapital());
+        assertEquals("CBA", dataStore.getCountriesHashMap().get(code).getCode2());
+
+        dataStore.clear();
     }
 
     @Test
-    void printCities()
+    void addCities()
     {
         int id = 5;
         String name = "Name";
@@ -135,10 +155,17 @@ public class DataStoreTest {
                     + ", " + dataStore.getCityHashMap().get(key).getDistrict()
                     + ", " + dataStore.getCityHashMap().get(key).getPopulation());
         }
+        assertEquals(5, dataStore.getCityHashMap().get(id).getId());
+        assertEquals("Name", dataStore.getCityHashMap().get(id).getName());
+        assertEquals("AAA", dataStore.getCityHashMap().get(id).getCountryCode());
+        assertEquals("district", dataStore.getCityHashMap().get(id).getDistrict());
+        assertEquals(10000, dataStore.getCityHashMap().get(id).getPopulation());
+
+        dataStore.clear();
     }
 
     @Test
-    void printLanguage()
+    void addLanguage()
     {
         ArrayList<Languages> languageList = new ArrayList<Languages>();
 
@@ -164,5 +191,16 @@ public class DataStoreTest {
                         + ", " + dataStore.getLanguageHashMap().get(key).get(i).getPercentage());
             }
         }
+        assertEquals(countryCode, dataStore.getLanguageHashMap().get(countryCode).get(0).getCountryCode());
+        assertEquals(lang, dataStore.getLanguageHashMap().get(countryCode).get(0).getLanguage());
+        assertEquals(true, dataStore.getLanguageHashMap().get(countryCode).get(0).isOfficial());
+        assertEquals(80.5, dataStore.getLanguageHashMap().get(countryCode).get(0).getPercentage());
+
+        assertEquals(countryCode, dataStore.getLanguageHashMap().get(countryCode).get(1).getCountryCode());
+        assertEquals(lang2, dataStore.getLanguageHashMap().get(countryCode).get(1).getLanguage());
+        assertEquals(false, dataStore.getLanguageHashMap().get(countryCode).get(1).isOfficial());
+        assertEquals(19.5, dataStore.getLanguageHashMap().get(countryCode).get(1).getPercentage());
+
+        dataStore.clear();
     }
 }

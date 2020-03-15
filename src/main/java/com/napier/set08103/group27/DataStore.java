@@ -17,6 +17,7 @@ public class DataStore {
 
     private DataStore(){}
 
+    //Using singleton to store data for countries, languages and cities
     public static DataStore getInstance()
     {
         if(instance == null)
@@ -26,6 +27,7 @@ public class DataStore {
         return instance;
     }
 
+    //Method to add countries to countryHashMap
     public void addToCountry(Country country)
     {
         if(country != null)
@@ -34,6 +36,7 @@ public class DataStore {
         }
     }
 
+    //Method to add cities to cityHashMap
     public void addToCity(City city)
     {
         if(city != null)
@@ -42,6 +45,7 @@ public class DataStore {
         }
     }
 
+    //Method to add languages to languagesHashMap
     public void addToLanguages(ArrayList<Languages> languagesList)
     {
         if(languagesList != null)
@@ -66,5 +70,12 @@ public class DataStore {
     public HashMap<String, ArrayList<Languages>> getLanguageHashMap()
     {
         return languageHashMap;
+    }
+
+    public void clear()
+    {
+        languageHashMap.clear();
+        cityHashMap.clear();
+        countryHashMap.clear();
     }
 }
