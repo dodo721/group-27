@@ -14,6 +14,7 @@ public class AppIntegrationTest {
     static DatabaseManager databaseManager;
     static DataStore dataStore = DataStore.getInstance();
 
+
     @BeforeAll
     static void init()
     {

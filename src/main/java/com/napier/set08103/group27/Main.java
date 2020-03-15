@@ -15,7 +15,15 @@ public class Main {
         DatabaseManager db = new DatabaseManager();
 
         //Connecting to the database
-        db.connect("db:3306");
+        if(args.length < 1)
+        {
+            db.connect("localhost:33060");
+        }
+        else
+        {
+            db.connect(args[0]);
+        }
+
 
         //Reading data from SQL database - might be best to merge these into 1 method
         db.readCountries();
@@ -34,8 +42,11 @@ public class Main {
             }
         }
          */
+
+        //Adding report containing number of speakers of a language in the world
         reports.add(new LanguagesOfWorldReport());
 
+        //printing reports
         for(ReportGenerator report : reports)
         {
             String[] contents = report.generate();
