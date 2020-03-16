@@ -1,15 +1,9 @@
 package com.napier.set08103.group27;
 
-import com.napier.set08103.group27.data.City;
-import com.napier.set08103.group27.data.Country;
-import com.napier.set08103.group27.report.CapitalCityReportGenerator;
-import com.napier.set08103.group27.report.CitiesInRegionReportGenerator;
-import com.napier.set08103.group27.report.CityReportGenerator;
+import com.napier.set08103.group27.report.LanguagesOfWorldReport;
 import com.napier.set08103.group27.report.ReportGenerator;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Main {
 
@@ -21,16 +15,25 @@ public class Main {
         DatabaseManager db = new DatabaseManager();
 
         //Connecting to the database
-        db.connect("localhost:33060");
+        if(args.length < 1)
+        {
+            db.connect("localhost:33060");
+        }
+        else
+        {
+            db.connect(args[0]);
+        }
+
 
         //Reading data from SQL database - might be best to merge these into 1 method
         db.readCountries();
         db.readCities();
         db.readLanguages();
 
-
-        reports.add(new CapitalCityReportGenerator());
-
+        /*
+        for (Country country : dataStore.getCountriesHashMap().values()) {
+            reports.add(new CitiesInRegionReportGenerator(country.getRegion()));
+        }
 
         for (ReportGenerator report : reports) {
             String[] contents = report.generate();
@@ -38,6 +41,21 @@ public class Main {
                 System.out.println(line);
             }
         }
+         */
+
+        //Adding report containing number of speakers of a language in the world
+        reports.add(new LanguagesOfWorldReport());
+
+        //printing reports
+        for(ReportGenerator report : reports)
+        {
+            String[] contents = report.generate();
+            for(String line : contents)
+            {
+                System.out.println(line);
+            }
+        }
+
 
         //Closing the connection to database
         db.disconnect();
