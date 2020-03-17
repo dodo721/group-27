@@ -19,7 +19,9 @@ public class CapitalCityReportGenerator implements ReportGenerator {
         DataStore dataStore = DataStore.getInstance();
         ArrayList<Integer> capitalCityIDs = new ArrayList<>();
         for (Country country : dataStore.getCountriesHashMap().values()) {
-            capitalCityIDs.add(country.getCapital());
+            int capitalCityID = country.getCapital();
+            if (capitalCityID != 0)
+                capitalCityIDs.add(capitalCityID);
         }
 
         ArrayList<City> cities = new ArrayList<>();
@@ -27,8 +29,9 @@ public class CapitalCityReportGenerator implements ReportGenerator {
             cities.add(dataStore.getCityHashMap().get(capitalCityID));
         }
 
-        String[] report = new String[cities.size()];
+        String[] report = new String[cities.size() + 1];
 
+        report[0] = "Capital cities reports:";
         for (int i = 1; i < report.length; i ++) {
             report[i] = cities.get(i - 1).getName() + ", population " + cities.get(i - 1).getPopulation();
         }
