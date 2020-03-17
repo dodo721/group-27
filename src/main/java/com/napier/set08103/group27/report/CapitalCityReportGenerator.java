@@ -17,16 +17,14 @@ public class CapitalCityReportGenerator implements ReportGenerator {
     public String[] generate(){
 
         DataStore dataStore = DataStore.getInstance();
-        ArrayList<Integer> countries = new ArrayList<>();
+        ArrayList<Integer> capitalCityIDs = new ArrayList<>();
         for (Country country : dataStore.getCountriesHashMap().values()) {
-                countries.add(country.getCapital());
+            capitalCityIDs.add(country.getCapital());
         }
 
         ArrayList<City> cities = new ArrayList<>();
-        for(City city : dataStore.getCityHashMap().values()) {
-            if (countries.contains(city.getId())) {
-                cities.add(city);
-            }
+        for (int capitalCityID : capitalCityIDs) {
+            cities.add(dataStore.getCityHashMap().get(capitalCityID));
         }
 
         String[] report = new String[cities.size()];
