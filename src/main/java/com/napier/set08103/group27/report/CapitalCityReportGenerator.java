@@ -17,20 +17,21 @@ public class CapitalCityReportGenerator implements ReportGenerator {
     public String[] generate(){
 
         DataStore dataStore = DataStore.getInstance();
-        ArrayList<Integer> countries = new ArrayList<>();
+        ArrayList<Integer> capitalCityIDs = new ArrayList<>();
         for (Country country : dataStore.getCountriesHashMap().values()) {
-                countries.add(country.getCapital());
+            int capitalCityID = country.getCapital();
+            if (capitalCityID != 0)
+                capitalCityIDs.add(capitalCityID);
         }
 
         ArrayList<City> cities = new ArrayList<>();
-        for(City city : dataStore.getCityHashMap().values()) {
-            if (countries.contains(city.getId())) {
-                cities.add(city);
-            }
+        for (int capitalCityID : capitalCityIDs) {
+            cities.add(dataStore.getCityHashMap().get(capitalCityID));
         }
 
-        String[] report = new String[cities.size()-1];
+        String[] report = new String[cities.size() + 1];
 
+        report[0] = "Capital cities reports:";
         for (int i = 1; i < report.length; i ++) {
             report[i] = cities.get(i - 1).getName() + ", population " + cities.get(i - 1).getPopulation();
         }
