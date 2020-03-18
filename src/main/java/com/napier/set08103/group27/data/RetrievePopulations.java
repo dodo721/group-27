@@ -17,4 +17,19 @@ public class RetrievePopulations {
 
         return worldPopulation;
     }
+
+    public long getContinentPopulation(String continent)
+    {
+        long continentPopulation = 0;
+
+        for(String key : dataStore.getCountriesHashMap().keySet())
+        {
+            if(continent.equals(dataStore.getCountriesHashMap().get(key).getContinent()))
+            {
+                continentPopulation += dataStore.getCountriesHashMap().get(key).getPopulation();
+            }
+        }
+
+        return continentPopulation;
+    }
 }
