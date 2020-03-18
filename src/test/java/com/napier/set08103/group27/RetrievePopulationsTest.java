@@ -198,7 +198,7 @@ public class RetrievePopulationsTest {
     void testDistrictEmptyStringInput()
     {
         //Testing invalid string input
-        long districtPop = retrievePopulations.getDistrictPopulation("district");
+        long districtPop = retrievePopulations.getDistrictPopulation("");
         System.out.println("District population: " + districtPop);
 
         assertEquals(0, districtPop);
@@ -208,7 +208,7 @@ public class RetrievePopulationsTest {
     void testCityEmptyStringInput()
     {
         //Testing invalid string input
-        long cityPop = retrievePopulations.getCityPopulation("Name");
+        long cityPop = retrievePopulations.getCityPopulation("");
         System.out.println("City population: " + cityPop);
 
         assertEquals(0, cityPop);
@@ -217,8 +217,6 @@ public class RetrievePopulationsTest {
     @Test
     void testContinentNullInput()
     {
-        //Testing output for Europe
-
         long continentPop = retrievePopulations.getContinentPopulation(null);
         System.out.println("Europe population: " + continentPop);
 
