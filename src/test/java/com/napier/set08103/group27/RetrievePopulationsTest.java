@@ -146,7 +146,7 @@ public class RetrievePopulationsTest {
     }
 
     @Test
-    void getCityPopulation()
+    void testCityPopulation()
     {
         int id = 5;
         String name = "Name";
