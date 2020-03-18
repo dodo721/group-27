@@ -165,50 +165,126 @@ public class RetrievePopulationsTest {
     }
 
     @Test
-    void testContinentEmptyStringInput()
+    void testContinentWrongStringInput()
     {
         //Testing invalid string input
-        long continentPop = retrievePopulations.getContinentPopulation("");
+        String code = "ABC";
+        String name = "TestCountry";
+        String continent = "Europe";
+        String region = "TestRegion";
+        double surfaceArea = 5.55;
+        int indepYear = 1990;
+        int population = 999999999;
+        double lifeExpectancy = 60.5;
+        double gnp = 5.5;
+        double gnpOld = 4.5;
+        String localName = "counTree";
+        String governmentForm = "Who";
+        String headOfState = "me";
+        int capital = 5;
+        String code2 = "CBA";
+        Country country = new Country(code, name, continent, region, surfaceArea, indepYear, population, lifeExpectancy, gnp, gnpOld, localName, governmentForm, headOfState, capital, code2);
+        dataStore.addToCountry(country);
+
+        long continentPop = retrievePopulations.getContinentPopulation("NotAContinent");
         System.out.println("Europe population: " + continentPop);
 
         assertEquals(0, continentPop);
+        dataStore.clear();
     }
 
     @Test
-    void testRegionEmptyStringInput()
+    void testRegionWrongStringInput()
     {
         //Testing invalid string input
-        long regionPop = retrievePopulations.getRegionPopulation("");
+        String code = "ABC";
+        String name = "TestCountry";
+        String continent = "Europe";
+        String region = "TestRegion";
+        double surfaceArea = 5.55;
+        int indepYear = 1990;
+        int population = 50505050;
+        double lifeExpectancy = 60.5;
+        double gnp = 5.5;
+        double gnpOld = 4.5;
+        String localName = "counTree";
+        String governmentForm = "Who";
+        String headOfState = "me";
+        int capital = 5;
+        String code2 = "CBA";
+        Country country = new Country(code, name, continent, region, surfaceArea, indepYear, population, lifeExpectancy, gnp, gnpOld, localName, governmentForm, headOfState, capital, code2);
+        dataStore.addToCountry(country);
+
+        long regionPop = retrievePopulations.getRegionPopulation("WrongRegion");
         System.out.println("Region population: " + regionPop);
 
         assertEquals(0, regionPop);
+        dataStore.clear();
     }
 
     @Test
     void testCountryEmptyStringInput()
     {
         //Testing invalid string input
-        long countryPop = retrievePopulations.getCountryPopulation("");
+        String code = "ABC";
+        String name = "TestCountry";
+        String continent = "Europe";
+        String region = "TestRegion";
+        double surfaceArea = 5.55;
+        int indepYear = 1990;
+        int population = 50505050;
+        double lifeExpectancy = 60.5;
+        double gnp = 5.5;
+        double gnpOld = 4.5;
+        String localName = "counTree";
+        String governmentForm = "Who";
+        String headOfState = "me";
+        int capital = 5;
+        String code2 = "CBA";
+        Country country = new Country(code, name, continent, region, surfaceArea, indepYear, population, lifeExpectancy, gnp, gnpOld, localName, governmentForm, headOfState, capital, code2);
+        dataStore.addToCountry(country);
+
+        long countryPop = retrievePopulations.getCountryPopulation("WrongCountry");
         System.out.println("Country population: " + countryPop);
 
         assertEquals(0, countryPop);
+        dataStore.clear();
     }
 
     @Test
-    void testDistrictEmptyStringInput()
+    void testDistrictWrongStringInput()
     {
         //Testing invalid string input
-        long districtPop = retrievePopulations.getDistrictPopulation("");
+        int id = 5;
+        String name = "Name";
+        String countryCode = "AAA";
+        String district = "district";
+        int population = 10000;
+
+        City city = new City(id, name, countryCode, district, population);
+        dataStore.addToCity(city);
+
+        long districtPop = retrievePopulations.getDistrictPopulation("WrongDistrict");
         System.out.println("District population: " + districtPop);
 
         assertEquals(0, districtPop);
+        dataStore.clear();
     }
 
     @Test
-    void testCityEmptyStringInput()
+    void testCityWrongStringInput()
     {
         //Testing invalid string input
-        long cityPop = retrievePopulations.getCityPopulation("");
+        int id = 5;
+        String name = "Name";
+        String countryCode = "AAA";
+        String district = "district";
+        int population = 5050;
+
+        City city = new City(id, name, countryCode, district, population);
+        dataStore.addToCity(city);
+
+        long cityPop = retrievePopulations.getCityPopulation("WrongCity");
         System.out.println("City population: " + cityPop);
 
         assertEquals(0, cityPop);
