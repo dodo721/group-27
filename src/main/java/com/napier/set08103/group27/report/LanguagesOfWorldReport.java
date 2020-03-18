@@ -30,8 +30,6 @@ public class LanguagesOfWorldReport implements ReportGenerator {
             worldPopulation += dataStore.getCountriesHashMap().get(key).getPopulation();
         }
 
-        System.out.println("World Pop: " + worldPopulation);
-
         //Goes over every country code
         for(String key : dataStore.getLanguageHashMap().keySet())
         {
