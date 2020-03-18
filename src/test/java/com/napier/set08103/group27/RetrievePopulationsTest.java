@@ -120,7 +120,7 @@ public class RetrievePopulationsTest {
         dataStore.addToCountry(country);
 
         long countryPop = retrievePopulations.getCountryPopulation("ABC");
-        System.out.println("TestRegion population: " + countryPop);
+        System.out.println("TestCountry population: " + countryPop);
 
         assertEquals(50505050L, countryPop);
         dataStore.clear();
@@ -162,5 +162,102 @@ public class RetrievePopulationsTest {
 
         assertEquals(5050, cityPop);
         dataStore.clear();
+    }
+
+    @Test
+    void testContinentEmptyStringInput()
+    {
+        //Testing invalid string input
+        long continentPop = retrievePopulations.getContinentPopulation("");
+        System.out.println("Europe population: " + continentPop);
+
+        assertEquals(0, continentPop);
+    }
+
+    @Test
+    void testRegionEmptyStringInput()
+    {
+        //Testing invalid string input
+        long regionPop = retrievePopulations.getRegionPopulation("");
+        System.out.println("Region population: " + regionPop);
+
+        assertEquals(0, regionPop);
+    }
+
+    @Test
+    void testCountryEmptyStringInput()
+    {
+        //Testing invalid string input
+        long countryPop = retrievePopulations.getCountryPopulation("");
+        System.out.println("Country population: " + countryPop);
+
+        assertEquals(0, countryPop);
+    }
+
+    @Test
+    void testDistrictEmptyStringInput()
+    {
+        //Testing invalid string input
+        long districtPop = retrievePopulations.getDistrictPopulation("district");
+        System.out.println("District population: " + districtPop);
+
+        assertEquals(0, districtPop);
+    }
+
+    @Test
+    void testCityEmptyStringInput()
+    {
+        //Testing invalid string input
+        long cityPop = retrievePopulations.getCityPopulation("Name");
+        System.out.println("City population: " + cityPop);
+
+        assertEquals(0, cityPop);
+    }
+
+    @Test
+    void testContinentNullInput()
+    {
+        //Testing output for Europe
+
+        long continentPop = retrievePopulations.getContinentPopulation(null);
+        System.out.println("Europe population: " + continentPop);
+
+        assertEquals(0, continentPop);
+    }
+
+    @Test
+    void testRegionNullInput()
+    {
+        long regionPop = retrievePopulations.getRegionPopulation(null);
+        System.out.println("Region population: " + regionPop);
+
+        assertEquals(0, regionPop);
+    }
+
+    @Test
+    void testCountryNullInput()
+    {
+        long countryPop = retrievePopulations.getCountryPopulation(null);
+        System.out.println("Country population: " + countryPop);
+
+        assertEquals(0, countryPop);
+    }
+
+    @Test
+    void testDistrictNullInput()
+    {
+        long districtPop = retrievePopulations.getDistrictPopulation(null);
+        System.out.println("District population: " + districtPop);
+
+        assertEquals(0, districtPop);
+    }
+
+    @Test
+    void testCityNullInput()
+    {
+        long cityPop = retrievePopulations.getCityPopulation(null);
+        System.out.println("City population: " + cityPop);
+
+        assertEquals(0, cityPop);
     }
 }
