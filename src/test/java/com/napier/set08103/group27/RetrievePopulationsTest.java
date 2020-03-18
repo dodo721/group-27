@@ -288,6 +288,7 @@ public class RetrievePopulationsTest {
         System.out.println("City population: " + cityPop);
 
         assertEquals(0, cityPop);
+        dataStore.clear();
     }
 
     @Test
