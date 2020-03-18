@@ -1,7 +1,9 @@
 package com.napier.set08103.group27;
 
+import com.napier.set08103.group27.report.ContinentPopulationReport;
 import com.napier.set08103.group27.report.LanguagesOfWorldReport;
 import com.napier.set08103.group27.report.ReportGenerator;
+import com.napier.set08103.group27.report.WorldPopulationReport;
 
 import java.util.ArrayList;
 
@@ -45,6 +47,8 @@ public class Main {
 
         //Adding report containing number of speakers of a language in the world
         reports.add(new LanguagesOfWorldReport());
+        reports.add(new WorldPopulationReport());
+        reports.add(new ContinentPopulationReport("Europe"));
 
         //printing reports
         for(ReportGenerator report : reports)
