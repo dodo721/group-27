@@ -25,9 +25,9 @@ public class RetrievePopulations {
     {
         long continentPopulation = 0;
 
-        for(String key : dataStore.getCountriesHashMap().keySet())
+        if(continent != null)
         {
-            if(continent != null)
+            for(String key : dataStore.getCountriesHashMap().keySet())
             {
                 if(continent.equals(dataStore.getCountriesHashMap().get(key).getContinent()))
                 {
@@ -45,9 +45,9 @@ public class RetrievePopulations {
     {
         long regionPopulation = 0;
 
-        for(String key : dataStore.getCountriesHashMap().keySet())
+        if(region != null)
         {
-            if(region != null)
+            for(String key : dataStore.getCountriesHashMap().keySet())
             {
                 if(region.equals(dataStore.getCountriesHashMap().get(key).getRegion()))
                 {
@@ -55,6 +55,7 @@ public class RetrievePopulations {
                 }
             }
         }
+
 
         return regionPopulation;
     }
@@ -65,9 +66,9 @@ public class RetrievePopulations {
     {
         long countryPopulation = 0;
 
-        for(String key : dataStore.getCountriesHashMap().keySet())
+        if(country != null)
         {
-            if(country != null)
+            for(String key : dataStore.getCountriesHashMap().keySet())
             {
                 if(country.equals(dataStore.getCountriesHashMap().get(key).getCode()))
                 {
@@ -85,9 +86,9 @@ public class RetrievePopulations {
     {
         long districtPopulation = 0;
 
-        for(int key : dataStore.getCityHashMap().keySet())
+        if(district != null)
         {
-            if(district != null)
+            for(int key : dataStore.getCityHashMap().keySet())
             {
                 if(district.equals(dataStore.getCityHashMap().get(key).getDistrict()))
                 {
@@ -95,6 +96,7 @@ public class RetrievePopulations {
                 }
             }
         }
+
 
         return districtPopulation;
     }
@@ -105,9 +107,9 @@ public class RetrievePopulations {
     {
         long cityPopulation = 0;
 
-        for(int key : dataStore.getCityHashMap().keySet())
+        if(city != null)
         {
-            if(city != null)
+            for(int key : dataStore.getCityHashMap().keySet())
             {
                 if(city.equals(dataStore.getCityHashMap().get(key).getName()))
                 {
